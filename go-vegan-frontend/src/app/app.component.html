@@ -1,0 +1,29 @@
+<div id="topBar">
+
+
+  <div class="border w-50 float-start m-3" *ngIf="mainAccount.email else elseBlock ">
+    <p class="border w-25 float-start hoverOver" (click)="logout(resetAccount)">Logout</p>
+    <a class="border w-25 float-start removeLine hoverOver" routerLink="/account">Account</a>
+  </div>
+
+  <ng-template #elseBlock>
+    <a class="w-25 float-start m-3 removeLine hoverOver" routerLink="/sign-in">Sign In</a>
+  </ng-template>
+
+  <div class="border float-none">
+    <app-shopping-cart></app-shopping-cart>
+  </div>
+</div>
+
+<div id="topLeft">
+  <a class="float-start fs-3 ms-5 mt-3 removeLine hoverOver" routerLink="/">Home</a>
+</div>
+
+<div id="leftBar">
+  <app-food-category-list></app-food-category-list>
+</div>
+
+<div id="display">
+  <router-outlet></router-outlet>
+</div>
+

@@ -1,0 +1,21 @@
+<div id="shoppingCart" class="mt-2 me-3">
+
+  <a routerLink="/shopping-cart-details">
+
+    <div id="left">
+      <img src="assets/images/other/shopping-cart.png" id="cartIcon" />
+    </div>
+
+    <div class="right p-0">
+      {{currentTotalPrice | number : '1.2-2'}}
+    </div>
+
+    <div class="right p-0">
+      {{currentTotalQuantity}}
+    </div>
+
+  </a>
+
+</div>
+
+

@@ -1,0 +1,8 @@
+<div>
+  <h2 class=" m-2">Food Category</h2>
+  <div class="m-2" *ngFor="let foodCategory of foodCategories">
+    <a class="removeLine" routerLink="/category/{{foodCategory.id}}">
+      <p >{{foodCategory.foodName}}</p>
+    </a>
+  </div>
+</div>

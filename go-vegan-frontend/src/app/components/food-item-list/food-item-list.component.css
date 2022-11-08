@@ -1,0 +1,23 @@
+.buttonClass {
+  background-color: yellow;
+  
+}
+
+.buttonClass:hover {
+  background-color: lightsalmon;
+}
+
+#grid {
+    overflow-y: scroll;
+    height: 100%;
+}
+
+.hoverOver:hover {
+  color: blue;
+  text-decoration: underline;
+}
+
+.removeLine {
+  text-decoration: none;
+  color: black;
+}

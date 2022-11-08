@@ -1,0 +1,31 @@
+<div id="scroll">
+  <table class="table m-3">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Image</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let orderItem of orderItems">
+
+        <td><a class="hoverOver removeLine" (click)="goToItem(orderItem.name)">{{orderItem.name}}</a></td>
+        <td><img (click)="goToItem(orderItem.name)" src="{{orderItem.imageUrl}}" height="200" width="150" /></td>
+        <td>{{orderItem.quantity}}</td>
+        <td>${{orderItem.price}}</td>
+
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="float-start w-100 ">
+    <ngb-pagination [(page)]="thePageNumber"
+                    [pageSize]="thePageSize"
+                    [collectionSize]="theTotalElements"
+                    (pageChange)="listOrderItems()">
+
+    </ngb-pagination>
+  </div>
+</div>

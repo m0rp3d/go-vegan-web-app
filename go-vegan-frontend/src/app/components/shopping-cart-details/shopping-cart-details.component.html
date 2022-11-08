@@ -1,0 +1,107 @@
+<div  class="m-3" id="scroll">
+  <!-- {{tempAccount.id}} -->
+  <div  *ngIf="cartFoodItems.length > 0">
+
+    <table class="table">
+      <tr>
+        <th>Item</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+      </tr>
+
+      <tr *ngFor="let tempFoodCartItem of cartFoodItems">
+        <td>
+          <a routerLink="/foodItems/{{tempFoodCartItem.id}}">
+            <img src="{{tempFoodCartItem.imageUrl}}" height="200" width="150" />
+          </a>
+        </td>
+
+        <td>
+          <a routerLink="/foodItems/{{tempFoodCartItem.id}}">
+            <p>{{tempFoodCartItem.name}}</p>
+          </a>
+        </td>
+
+        <td>
+          <a routerLink="/foodItems/{{tempFoodCartItem.id}}">
+            <p>{{tempFoodCartItem.price | currency: 'USD'}}</p>
+          </a>
+        </td>
+
+        <td>
+          <div>
+            <div class="float-start">
+              <button [disabled]="disableInc" (click)="increment(tempFoodCartItem)">+</button>
+            </div>
+            <p class="float-start ms-1 me-1">{{tempFoodCartItem.quantity}}</p>
+            <div class="float-start border">
+              <button (click)="decrement(tempFoodCartItem)">-</button>
+            </div>
+
+            <div class="float-start">
+              <button (click)="removeBoth(tempFoodCartItem)">Remove</button>
+            </div>
+          </div>
+        </td>
+
+      </tr>
+    </table>
+
+
+    <div *ngIf="zeroValue">
+
+      <h3>Your order may be lacking the following nutrients</h3>
+      <p>Click any existing links to get appropriate nutrient recommendations.</p>
+      <div *ngIf="cartProtein < 1">
+        <a routerLink="/allFoodItems/protein" *ngIf="cartProtein < 1" class="occupyWidth">Protein</a>
+      </div>
+
+      <!--
+    <a routerLink="/allFoodItems/saturatedFat" class="occupyWidth">Saturated Fat: {{cartSaturatedFat}}</a>
+    <a routerLink="/allFoodItems/transFat" class="occupyWidth">Trans Fat: {{cartTransFat}}</a>
+    <a routerLink="/allFoodItems/cholesterol" class="occupyWidth">Cholesterol: {{cartCholesterol}}</a>
+    -->
+
+      <div *ngIf="cartSugars < 1">
+        <a routerLink="/allFoodItems/sugars" class="occupyWidth">Sugars</a>
+      </div>
+      <div *ngIf="cartSodium < 1">
+        <a routerLink="/allFoodItems/sodium" class="occupyWidth">Sodium</a>
+      </div>
+      <div *ngIf="cartFiber < 1">
+        <a routerLink="/allFoodItems/fiber" class="occupyWidth">Fiber</a>
+      </div>
+
+      <div *ngIf="cartVitaminD < 1">
+        <a routerLink="/allFoodItems/vitaminD" class="occupyWidth">Vitamin D</a>
+      </div>
+
+      <div *ngIf="cartCalcium < 1">
+        <a routerLink="/allFoodItems/calcium" class="occupyWidth">Calcium</a>
+      </div>
+
+      <div *ngIf="cartIron < 1">
+        <a routerLink="/allFoodItems/iron" class="occupyWidth">Iron</a>
+      </div>
+
+      <div *ngIf="cartPotassium < 1">
+        <a routerLink="/allFoodItems/potassium" class="occupyWidth">Potassium</a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div *ngIf="cartFoodItems.length != 0">
+    <button class="mt-3 me-3" (click)="onSubmit()" [disabled]="disable">Purchase</button> <p class="text-danger">{{ msg }}</p>
+    <p class="text-danger">{{ msg2 }}</p>
+  </div>
+  
+
+  <div class="mt-3" *ngIf="cartFoodItems.length == 0">
+    <p>Your shopping cart is empty.</p>
+  </div>
+
+
+</div>

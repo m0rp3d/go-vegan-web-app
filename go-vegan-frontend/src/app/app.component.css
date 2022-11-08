@@ -1,0 +1,53 @@
+#topLeft {
+  width: 9%;
+  background-color: yellow;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 7.85%;
+  //float: left;
+  //border-bottom: 2px solid #e1c8a5;
+}
+
+#topBar {
+  width: 91%;
+  background-color: lightgreen;
+  position: fixed;
+  top: 0;
+  left: 9%;
+  height: 7.85%;
+  //float: left;
+  //border-bottom: 2px solid blue;
+}
+
+#leftBar {
+  width: 9%;
+  background-color: lightgreen;
+  position: fixed;
+  top: 7.85%;
+  left: 0;
+  height: 92.15%;
+  //float: left;
+  //border-bottom: 2px solid pink;
+}
+
+#display {
+  width: 91%;
+  //background-color: green;
+  position: fixed;
+  top: 7.85%;
+  left: 9%;
+  height: 92.15%;
+  //float: left;
+  border-bottom: 2px solid green;
+}
+
+.hoverOver:hover {
+  color: blue;
+  text-decoration: underline;
+}
+
+.removeLine {
+  text-decoration: none;
+  color: black;
+}

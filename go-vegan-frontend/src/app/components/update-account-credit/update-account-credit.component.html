@@ -1,0 +1,74 @@
+<div id="theRegistration" class="m-3">
+  <h1 id="userRegistration">User Registration</h1>
+  <form [formGroup]="registrationForm" #Registerform="ngForm">
+    <!-- (ngSubmit)="registerAccount(submitBtn)" -->
+
+    <div>
+      <div class="aBox mt-3">
+        <label for="creditCardNumber" class="me-2">Credit Card Number:</label>
+        <input type="text" formControlName="creditCardNumber" placeholder="Enter credit card number" name="creditCardNumber" [(ngModel)]="account.creditCardNumber">
+      </div>
+      <div class="text-danger" *ngIf="registrationForm.get('creditCardNumber')?.invalid && registrationForm.get('creditCardNumber')?.touched">
+        <small *ngIf="registrationForm.get('creditCardNumber')?.hasError('required')" class="redfont">Credit card number is required</small>
+        <small *ngIf="registrationForm.get('creditCardNumber')?.hasError('maxlength')" class="redfont">Credit card number must be 16 characters long.</small>
+        <small *ngIf="registrationForm.get('creditCardNumber')?.hasError('minlength')" class="redfont">Credit card number must be 16 characters long.</small>
+        <small *ngIf="registrationForm.get('creditCardNumber')?.hasError('pattern')" class="redfont">Only numerical values.</small>
+
+      </div>
+    </div>
+
+    <div>
+      <div class="aBox mt-3">
+        <label for="creditCardCode" class="me-2">Credit Card Code:</label>
+        <input type="number" formControlName="creditCardCode" placeholder="Enter credit card code" name="creditCardCode" [(ngModel)]="account.creditCardCode">
+      </div>
+      <div class="text-danger" *ngIf="registrationForm.get('creditCardCode')?.invalid && registrationForm.get('creditCardCode')?.touched">
+        <small *ngIf="registrationForm.get('creditCardCode')?.hasError('required')" class="redfont">Credit card code is required</small>
+        <small *ngIf="registrationForm.get('creditCardCode')?.hasError('wrongCodeLength')" class="redfont">Credit card code must be 3 or 4 digits</small>
+
+      </div>
+    </div>
+
+    <div>
+      <div class="aBox mt-3">
+        <label for="creditCardName" class="me-2">Credit Card Name:</label>
+        <input type="text" formControlName="creditCardName" placeholder="Enter credit card name" name="creditCardName" [(ngModel)]="account.creditCardName">
+      </div>
+      <div class="text-danger" *ngIf="registrationForm.get('creditCardName')?.invalid && registrationForm.get('creditCardName')?.touched">
+        <small *ngIf="registrationForm.get('creditCardName')?.hasError('required')" class="redfont">Credit card name is required</small>
+        <small *ngIf="registrationForm.get('creditCardName')?.hasError('maxlength')" class="redfont">Credit card name cannot be more than 150 characters long.</small>
+        <small *ngIf="registrationForm.get('creditCardName')?.hasError('pattern')" class="redfont">Only letters allowed.</small>
+
+      </div>
+    </div>
+
+    <div>
+      <div class="aBox mt-3">
+        <label for="creditCardExpirationMonth" class="me-2">Credit Card Expiration Month:</label>
+        <input type="number" formControlName="creditCardExpirationMonth" placeholder="Enter credit card expiration month" name="creditCardExpirationMonth" [(ngModel)]="account.creditCardExpirationMonth">
+      </div>
+      <div class="text-danger" *ngIf="registrationForm.get('creditCardExpirationMonth')?.invalid && registrationForm.get('creditCardExpirationMonth')?.touched">
+        <small *ngIf="registrationForm.get('creditCardExpirationMonth')?.hasError('required')" class="redfont">Credit card expiration month is required</small>
+        <small *ngIf="registrationForm.get('creditCardExpirationMonth')?.hasError('wrongExpirationMonth')" class="redfont">Credit card expiration month is must be between 1-12</small>
+
+      </div>
+    </div>
+
+    <div>
+      <div class="aBox mt-3">
+        <label for="creditCardExpirationYear" class="me-2">Credit Card Expiration Year:</label>
+        <input type="number" formControlName="creditCardExpirationYear" placeholder="Enter credit card expiration year" name="creditCardExpirationYear" [(ngModel)]="account.creditCardExpirationYear">
+      </div>
+      <div class="text-danger" *ngIf="registrationForm.get('creditCardExpirationYear')?.invalid && registrationForm.get('creditCardExpirationYear')?.touched">
+        <small *ngIf="registrationForm.get('creditCardExpirationYear')?.hasError('required')" class="redfont">Credit card expiration is required</small>
+        <small *ngIf="registrationForm.get('creditCardExpirationYear')?.hasError('expired')" class="redfont">Your credit card has expired</small>
+        <small *ngIf="registrationForm.get('creditCardExpirationYear')?.hasError('incorrectExpiration')" class="redfont">Credit card expiration date is incorrect</small>
+      </div>
+    </div>
+
+    <button class="mt-3" [disabled]="registrationForm.invalid" id="registerButton" #submitBtn type="submit" (click)="updateAccount(submitBtn)">Update</button>
+    <p class="text-danger" >{{msg}}</p>
+  </form>
+
+</div>
+

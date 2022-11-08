@@ -1,0 +1,61 @@
+<div class="m-5">
+
+  <div>
+
+    <div class="float-start">
+      <img class="float-start" src="{{foodItem.imageUrl}}" height="600" width="450" />
+
+      <div class="float-none">
+        <button class="buttonClass" [disabled]="disableInc" (click)="addToCart()" type="button">Add to cart</button>
+        <div class="float-end">
+          <p><b>Price: ${{foodItem.price}}</b></p>
+        </div>
+      </div>
+      <p class="text-danger">{{msg}}</p>
+
+    </div>
+
+    <div class="float-start border border-dark ms-5">
+      <div class="m-2 p-0 m-0 ">
+        <p class="fs-1 p-0 m-0 ">Item: {{foodItem.name}}</p>
+        <p class="fs-2 p-0 m-0 ">Nutritional Facts</p>
+        <hr class="thick p-0 m-0 " />
+
+        <p class="fs-4 p-0 m-0 ">Weight: {{foodItem.weight}}</p>
+        <p class="fs-4 p-0 m-0 ">Serving size: {{foodItem.serving}}</p>
+        <p class="fs-4 p-0 m-0 ">Calories per serving: {{foodItem.calories}}</p>
+
+        <hr class="normal p-0 m-0 " />
+        <p class="float-end p-0 m-0">%Daily Value*</p>
+        <p class="p-0 m-0">Protein: {{foodItem.protein}}g</p>
+
+        <hr class="thin p-0 m-0" />
+
+        <p class="p-0 m-0">Saturated Fat: {{foodItem.saturatedFat}}%</p>
+        <hr class="thin p-0 m-0" />
+        <p class="p-0 m-0">Trans Fat: {{foodItem.transFat}}%</p>
+        <hr class="thin p-0 m-0" />
+        <p class="p-0 m-0">Cholesterol: {{foodItem.cholesterol}}%</p>
+        <hr class="thin p-0 m-0" />
+        <p class="p-0 m-0">Fiber: {{foodItem.fiber}}%</p>
+        <hr class="thin p-0 m-0" />
+        <p class="p-0 m-0">Sugar: {{foodItem.sugars}}%</p>
+        <hr class="thin p-0 m-0" />
+
+        <hr class="normal p-0 m-0" />
+
+        <p class="p-0 m-0">Vitamin D: {{foodItem.vitaminD}}%</p>
+        <hr class="thin p-0 m-0" />
+        <p class="p-0 m-0">Calcium: {{foodItem.calcium}}%</p>
+        <hr class="thin p-0 m-0" />
+        <p class="p-0 m-0">Iron: {{foodItem.iron}}%</p>
+        <hr class="thin p-0 m-0" />
+        <p class="p-0 m-0">Potassium: {{foodItem.potassium}}%</p>
+
+      </div>
+    </div>
+
+  </div>
+
+
+</div>

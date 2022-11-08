@@ -1,0 +1,62 @@
+<div class="m-5">
+  <h1>Sign In</h1>
+
+  
+  <form [formGroup]="signInForm" #SignInForm="ngForm">
+    <!-- (ngSubmit)="onSubmit() -->
+
+
+    <div class="mt-3">
+      <label>Email:</label>
+      <div>
+        <input [class.redBorder]="signInForm.get('email').invalid &&
+               signInForm.get('email').touched" formControlName="email" [(ngModel)]="account.email" type="email" placeholder="Enter email">
+        <!-- <small class="redFont" [class.nothing]="signInForm.get('email').valid ||
+             signInForm.get('email').untouched">Email is required</small>
+      -->
+        <div class="text-danger" *ngIf="signInForm.get('email').invalid && signInForm.get('email').touched">
+          <small *ngIf="signInForm.get('email')?.hasError('required')" class="redfont">Email is required. </small>
+          <small *ngIf="signInForm.get('email')?.hasError('maxlength')" class="redfont">Email cannot be more than 30 characters long. </small>
+          <small *ngIf="signInForm.get('email')?.hasError('minlength')" class="redfont">Email cannot be less than 12 characters long. </small>
+          <small *ngIf="signInForm.get('email')?.hasError('email')" class="redfont">Use proper email format. Ex: ---@---.com. </small>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="mt-3">
+      <label>Password:</label>
+      <div>
+        <input formControlName="password" [(ngModel)]="account.password" type="password" placeholder="Enter password">
+      </div>
+      <div class="text-danger" *ngIf="signInForm.get('password')?.invalid && signInForm.get('password')?.touched">
+        <small *ngIf="signInForm.get('password')?.hasError('required')" class="redfont">Password is required.</small>
+        <small *ngIf="signInForm.get('password')?.hasError('maxlength')" class="redfont">Password cannot be more than 30 characters long. </small>
+        <small *ngIf="signInForm.get('password')?.hasError('minlength')" class="redfont">Password cannot be less than 8 characters long. </small>
+      </div>
+    </div>
+
+    <!--
+  <div>
+    <label>Confirm Password:</label>
+    <div>
+      <input formControlName="confirmPassword" type="password" placeholder="Enter password">
+    </div>
+    <div *ngIf="signInForm.get('confirmPassword')?.touched">
+      <small *ngIf="signInForm.get('confirmPassword')?.hasError('required')" class="redfont">Password is required.</small>
+      <small *ngIf="signInForm?.errors?.['misMatch']" class="redfont">Passwords do not match.</small>
+    </div>
+  </div>
+  -->
+    <!-- [disabled] means the button is disabled if the form is not valid-->
+    <button class="mt-3" [disabled]="SignInForm.form.invalid" (click)="onSubmit()" type="submit">Login</button>
+    <small class="text-danger ms-3">{{msg}}</small>
+
+    <!--
+  {{signInForm.value | json}}
+  -->
+
+  </form>
+
+  <p class="mt-3 hoverOver" routerLink="/register">Need an account? Register Here.</p>
+</div>

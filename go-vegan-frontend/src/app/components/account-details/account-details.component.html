@@ -1,0 +1,44 @@
+<div class="m-3">
+
+  <div class="mb-3">
+    <h3> Account User Details</h3>
+
+    <p>First name: {{account.firstName}}</p>
+    <p>Last name: {{account.lastName}}</p>
+    <p>Email: {{account.email}}</p>
+    <p>Username: {{account.userName}}</p>
+
+
+    <button (click)="routeToUser()">Update User</button>
+  </div>
+
+
+  <div class="mb-3">
+    <h3> Account Address</h3>
+
+    <p>Address: {{account.address}}</p>
+    <p>City: {{account.city}}</p>
+    <p>State: {{account.state}}</p>
+    <p>Country: {{account.country}}</p>
+    <p>Zipcode: {{account.zipcode}}</p>
+
+    <button (click)="routeToAddress()">Update Address</button>
+  </div>
+
+
+  <div>
+    <h3>Credit Card Information</h3>
+
+    <p>Credit card number: {{tempCard}}</p>
+    <p>Credit card name: {{account.creditCardName}}</p>
+    <p>Expiration month: {{account.creditCardExpirationMonth}}</p>
+    <p>Expiration year: {{account.creditCardExpirationYear}}</p>
+
+    <button (click)="routeToCredit()">Update Credit Card Info</button>
+
+  </div>
+
+
+</div>
+
+

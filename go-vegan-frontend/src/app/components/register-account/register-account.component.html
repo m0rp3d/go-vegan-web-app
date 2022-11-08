@@ -1,0 +1,209 @@
+<div class="ms-5 mt-3 scroll">
+  <h1>User Registration</h1>
+  <form [formGroup]="registrationForm" #Registerform="ngForm">
+    <!-- (ngSubmit)="registerAccount(submitBtn)" -->
+    <div>
+      <div class="aBox mt-3">
+        <label class="me-2" for="firstName">First Name:</label>
+        <input type="text" formControlName="firstName" placeholder="Enter first name" name="firstName" [(ngModel)]="account.firstName">
+      </div>
+      <div class="text-danger" *ngIf="registrationForm.get('firstName')?.invalid && registrationForm.get('firstName')?.touched">
+        <small *ngIf="registrationForm.get('firstName')?.hasError('required')" class="redfont">First name is required</small>
+        <small *ngIf="registrationForm.get('firstName')?.hasError('maxlength')" class="redfont">First name cannot be more than 127 characters long.</small>
+        <small *ngIf="registrationForm.get('firstName')?.hasError('pattern')" class="redfont">Only letters allowed.</small>
+      </div>
+    </div>
+
+    <div>
+      <div class="aBox mt-3">
+        <label class="me-2" for="firstName">Last Name:</label>
+        <input type="text" formControlName="lastName" placeholder="Enter last name" name="lastName" [(ngModel)]="account.lastName">
+      </div>
+      <div class="text-danger" *ngIf="registrationForm.get('lastName')?.invalid && registrationForm.get('lastName')?.touched">
+        <small *ngIf="registrationForm.get('lastName')?.hasError('required')" class="redfont">Last name is required</small>
+        <small *ngIf="registrationForm.get('lastName')?.hasError('maxlength')" class="redfont">Last name cannot be more than 127 characters long.</small>
+        <small *ngIf="registrationForm.get('lastName')?.hasError('pattern')" class="redfont">Only letters allowed.</small>
+      </div>
+    </div>
+
+    <div>
+      <div class="aBox mt-3">
+        <label class="me-2" for="email">Email:</label>
+        <input type="email" formControlName="email" placeholder="Enter email" name="email" [(ngModel)]="account.email">
+      </div>
+      <div class="text-danger" *ngIf="registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched">
+        <small *ngIf="registrationForm.get('email')?.hasError('required')" class="redfont">Email is required</small>
+        <small *ngIf="registrationForm.get('email')?.hasError('maxlength')" class="redfont">Email cannot be more than 30 characters long.</small>
+        <small *ngIf="registrationForm.get('email')?.hasError('minlength')" class="redfont">Email cannot be less than 12 characters long.</small>
+        <small *ngIf="registrationForm.get('email')?.hasError('email')" class="redfont">Use proper email format. Ex: ---@---.com. </small>
+      </div>
+    </div>
+
+    <div>
+      <div class="aBox mt-3">
+        <label class="me-2" for="userName">User Name:</label>
+        <input type="text" formControlName="userName" placeholder="Enter userName" name="userName" [(ngModel)]="account.userName">
+      </div>
+      <div class="text-danger" *ngIf="registrationForm.get('userName')?.invalid && registrationForm.get('userName')?.touched">
+        <small *ngIf="registrationForm.get('userName')?.hasError('required')" class="redfont">Username is required</small>
+        <small *ngIf="registrationForm.get('userName')?.hasError('maxlength')" class="redfont">Username cannot be more than 30 characters long.</small>
+        <small *ngIf="registrationForm.get('userName')?.hasError('minlength')" class="redfont">Username cannot be less than 6 characters long.</small>
+        <small *ngIf="registrationForm.get('userName')?.hasError('invalidName')" class="redfont">Username can only contain digits, letters and underscore(s).</small>
+      </div>
+    </div>
+
+    <div>
+      <div class="aBox mt-3">
+        <label class="passwordLabel me-2" for="pwd">Password:</label>
+        <input class="passwordInput" type="password" formControlName="password" placeholder="Enter password" name="password" [(ngModel)]="account.password">
+      </div>
+      <div class="text-danger" *ngIf="registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched">
+        <small *ngIf="registrationForm.get('password')?.hasError('required')" class="redfont">Password is required.</small>
+        <small *ngIf="registrationForm.get('password')?.hasError('maxlength')" class="redfont">Password cannot be more than 30 characters long.</small>
+        <small *ngIf="registrationForm.get('password')?.hasError('minlength')" class="redfont">Password cannot be less than 8 characters long.</small>
+      </div>
+    </div>
+
+    <div>
+      <div class="aBox mt-3">
+        <label class="passwordLabel me-2" for="pwd">Confirm Password:</label>
+        <input class="passwordInput" type="password" formControlName="cpassword" placeholder="Enter confirm password" name="cpassword" (ngModel)="account.password">
+      </div>
+      <div class="text-danger" *ngIf="registrationForm.get('cpassword')?.touched">
+        <small *ngIf="registrationForm.get('cpassword')?.hasError('required')" class="redfont">Password is required.</small>
+        <small *ngIf="registrationForm.get('cpassword')?.hasError('maxlength')" class="redfont">Password cannot be more than 30 characters long.</small>
+        <small *ngIf="registrationForm.get('cpassword')?.hasError('minlength')" class="redfont">Password cannot be less than 8 characters long.</small>
+        <small *ngIf="registrationForm?.errors?.['misMatch']" class="redfont">Passwords do not match.</small>
+      </div>
+    </div>
+
+    <div>
+      <div class="aBox mt-3">
+        <label class="me-2" for="address">Address:</label>
+        <input type="text" formControlName="address" placeholder="Enter address" name="address" [(ngModel)]="account.address">
+      </div>
+      <div class="text-danger" *ngIf="registrationForm.get('address')?.invalid && registrationForm.get('address')?.touched">
+        <small *ngIf="registrationForm.get('address')?.hasError('required')" class="redfont">Email is required</small>
+        <small *ngIf="registrationForm.get('address')?.hasError('maxlength')" class="redfont">Email cannot be more than 150 characters long.</small>
+        <small *ngIf="registrationForm.get('address')?.hasError('pattern')" class="redfont">Only letters, numbers, and spaces allowed.</small>
+      </div>
+    </div>
+
+    <div>
+      <div class="aBox mt-3">
+        <label class="me-2" for="city">City:</label>
+        <input type="text" formControlName="city" placeholder="Enter city" name="city" [(ngModel)]="account.city">
+      </div>
+      <div class="text-danger" *ngIf="registrationForm.get('city')?.invalid && registrationForm.get('city')?.touched">
+        <small *ngIf="registrationForm.get('city')?.hasError('required')" class="redfont">City is required</small>
+        <small *ngIf="registrationForm.get('city')?.hasError('maxlength')" class="redfont">City cannot be more than 150 characters long.</small>
+        <small *ngIf="registrationForm.get('city')?.hasError('pattern')" class="redfont">Only letters and spaces allowed.</small>
+      </div>
+    </div>
+
+    <div>
+      <div class="aBox mt-3">
+        <label class="me-2" for="state">State:</label>
+        <input type="text" formControlName="state" placeholder="Enter state" name="state" [(ngModel)]="account.state">
+      </div>
+      <div class="text-danger" *ngIf="registrationForm.get('state')?.invalid && registrationForm.get('state')?.touched">
+        <small *ngIf="registrationForm.get('state')?.hasError('required')" class="redfont">Email is required</small>
+        <small *ngIf="registrationForm.get('state')?.hasError('maxlength')" class="redfont">Email cannot be more than 150 characters long.</small>
+        <small *ngIf="registrationForm.get('state')?.hasError('pattern')" class="redfont">Only letters and spaces allowed.</small>
+      </div>
+    </div>
+
+    <div>
+      <div class="aBox mt-3">
+        <label class="me-2" for="country">Country:</label>
+        <input type="text" formControlName="country" placeholder="Enter country" name="country" [(ngModel)]="account.country">
+      </div>
+      <div class="text-danger" *ngIf="registrationForm.get('country')?.invalid && registrationForm.get('country')?.touched">
+        <small *ngIf="registrationForm.get('country')?.hasError('required')" class="redfont">Country is required</small>
+        <small *ngIf="registrationForm.get('country')?.hasError('maxlength')" class="redfont">Country cannot be more than 150 characters long.</small>
+        <small *ngIf="registrationForm.get('country')?.hasError('pattern')" class="redfont">Only letters and spaces allowed.</small>
+      </div>
+    </div>
+
+    <div>
+      <div class="aBox mt-3">
+        <label class="me-2" for="zipcode">Zipcode:</label>
+        <input type="text" formControlName="zipcode" placeholder="Enter zipcode" name="zipcode" [(ngModel)]="account.zipcode">
+      </div>
+      <div class="text-danger" *ngIf="registrationForm.get('zipcode')?.invalid && registrationForm.get('zipcode')?.touched">
+        <small *ngIf="registrationForm.get('zipcode')?.hasError('required')" class="redfont">Zipcode is required</small>
+        <small *ngIf="registrationForm.get('zipcode')?.hasError('maxlength')" class="redfont">Zipcode must 5 characters long.</small>
+        <small *ngIf="registrationForm.get('zipcode')?.hasError('minlength')" class="redfont">Zipcode must 5 characters long.</small>
+        <small *ngIf="registrationForm.get('zipcode')?.hasError('pattern')" class="redfont">Only numerical values.</small>
+      </div>
+    </div>
+
+    <div>
+      <div class="aBox mt-3">
+        <label class="me-2" for="creditCardNumber">Credit Card Number:</label>
+        <input type="text" formControlName="creditCardNumber" placeholder="Enter credit card number" name="creditCardNumber" [(ngModel)]="account.creditCardNumber">
+      </div>
+      <div class="text-danger" *ngIf="registrationForm.get('creditCardNumber')?.invalid && registrationForm.get('creditCardNumber')?.touched">
+        <small *ngIf="registrationForm.get('creditCardNumber')?.hasError('required')" class="redfont">Credit card number is required</small>
+        <small *ngIf="registrationForm.get('creditCardNumber')?.hasError('maxlength')" class="redfont">Credit card number must be 16 characters long.</small>
+        <small *ngIf="registrationForm.get('creditCardNumber')?.hasError('minlength')" class="redfont">Credit card number must be 16 characters long.</small>
+        <small *ngIf="registrationForm.get('creditCardNumber')?.hasError('pattern')" class="redfont">Only numerical values(no spaces).</small>
+
+      </div>
+    </div>
+
+    <div>
+      <div class="aBox mt-3">
+        <label class="me-2" for="creditCardCode">Credit Card Code:</label>
+        <input type="number" formControlName="creditCardCode" placeholder="Enter credit card code" name="creditCardCode" [(ngModel)]="account.creditCardCode">
+      </div>
+      <div class="text-danger" *ngIf="registrationForm.get('creditCardCode')?.invalid && registrationForm.get('creditCardCode')?.touched">
+        <small *ngIf="registrationForm.get('creditCardCode')?.hasError('required')" class="redfont">Credit card code is required</small>
+        <small *ngIf="registrationForm.get('creditCardCode')?.hasError('wrongCodeLength')" class="redfont">Credit card code must be 3 or 4 digits</small>
+
+      </div>
+    </div>
+
+    <div>
+      <div class="aBox mt-3">
+        <label class="me-2" for="creditCardName">Credit Card Name:</label>
+        <input type="text" formControlName="creditCardName" placeholder="Enter credit card name" name="creditCardName" [(ngModel)]="account.creditCardName">
+      </div>
+      <div class="text-danger" *ngIf="registrationForm.get('creditCardName')?.invalid && registrationForm.get('creditCardName')?.touched">
+        <small *ngIf="registrationForm.get('creditCardName')?.hasError('required')" class="redfont">Credit card name is required</small>
+        <small *ngIf="registrationForm.get('creditCardName')?.hasError('maxlength')" class="redfont">Credit card name cannot be more than 150 characters long.</small>
+        <small *ngIf="registrationForm.get('creditCardName')?.hasError('pattern')" class="redfont">Only letters and spaces allowed.</small>
+
+      </div>
+    </div>
+
+    <div>
+      <div class="aBox mt-3">
+        <label class="me-2" for="creditCardExpirationMonth">Credit Card Expiration Month:</label>
+        <input type="number" formControlName="creditCardExpirationMonth" placeholder="Enter credit card expiration month" name="creditCardExpirationMonth" [(ngModel)]="account.creditCardExpirationMonth">
+      </div>
+      <div class="text-danger" *ngIf="registrationForm.get('creditCardExpirationMonth')?.invalid && registrationForm.get('creditCardExpirationMonth')?.touched">
+        <small *ngIf="registrationForm.get('creditCardExpirationMonth')?.hasError('required')" class="redfont">Credit card expiration month is required</small>
+        <small *ngIf="registrationForm.get('creditCardExpirationMonth')?.hasError('wrongExpirationMonth')" class="redfont">Credit card expiration month is must be between 1-12</small>
+
+      </div>
+    </div>
+
+    <div>
+      <div class="aBox mt-3">
+        <label class="me-2" for="creditCardExpirationYear">Credit Card Expiration Year:</label>
+        <input type="number" formControlName="creditCardExpirationYear" placeholder="Enter credit card expiration year" name="creditCardExpirationYear" [(ngModel)]="account.creditCardExpirationYear">
+      </div>
+      <div class="text-danger" *ngIf="registrationForm.get('creditCardExpirationYear')?.invalid && registrationForm.get('creditCardExpirationYear')?.touched">
+        <small *ngIf="registrationForm.get('creditCardExpirationYear')?.hasError('required')" class="redfont">Credit card expiration is required</small>
+        <small *ngIf="registrationForm.get('creditCardExpirationYear')?.hasError('expired')" class="redfont">Your credit card has expired</small>
+        <small *ngIf="registrationForm.get('creditCardExpirationYear')?.hasError('incorrectExpiration')" class="redfont">Credit card expiration date is incorrect</small>
+      </div>
+    </div>
+
+    <button class="mt-3" [disabled]="registrationForm.invalid" id="registerButton" #submitBtn type="submit" (click)="registerAccount(submitBtn)">Register</button>
+    <p class="redfont">{{msg}}</p>
+  </form>
+  <p id="alreadyHave" class="hoverOver fs-4" [routerLink]="['/sign-in']">Already have an account? Login Here.</p>
+
+</div>

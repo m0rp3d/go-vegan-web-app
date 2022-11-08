@@ -1,0 +1,18 @@
+.buttonClass {
+  background-color: yellow;
+}
+
+  .buttonClass:hover {
+    background-color: lightsalmon;
+  }
+hr.thick {
+    border: 7px solid black;
+}
+
+hr.normal {
+  border: 5px solid black;
+}
+
+hr.thin {
+  border: 1px solid black;
+}

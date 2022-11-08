@@ -1,0 +1,16 @@
+<div class="m-3">
+  <h2>Click to sort by high {{nutritionValue}} food</h2>
+
+  <button class="mt-3" (click)="sortFoodItems('nutritionvalue')">Show Me</button>
+
+  <div class="mt-3" *ngIf="showItems">
+    <!-- slice is used to display the top 15 results from the foodItems array -->
+    <ul *ngFor="let foodItem of foodItems.slice(0, 15);">
+      <a routerLink="/foodItems/{{foodItem.id}}" class="me-3">Name: {{foodItem.name}}</a>
+      <a class="me-3 removeLine">Price: {{foodItem.price}}</a>
+      <a>{{nutritionValue |titlecase}}: {{foodItem[nutritionValue]}}</a>
+    </ul>
+  </div>
+
+</div>
+
