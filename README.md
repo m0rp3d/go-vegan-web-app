@@ -1,6 +1,6 @@
-A full stack vegan e-store web application using angular frontend and spring boot for the backend. The user can add food items to the shopping cart for purchase and the application will tell the user if their order is missing a nutrient(s). This app allows the user to create an account to login into so they could view past orders. 
+A full stack vegan e-store web application using angular frontend and spring boot for the backend. The user can add food items to the shopping cart for purchase and the application will tell the user if their order is missing an important nutrient(s). The user can than click a link recommending foods highest in that nutrient. This app allows the user to create an account to login into so they could view past orders. 
 
-Angular validation is used to ensure correct login and account data is inputted into the forms. Route guards are used for security so that the user needs to be logged in to navigate to certain routes. Pagination allows the web page to dynamically display a large array of food items to the user past the 20 food item limit. Uses angular http request and spring rest jpa.
+Angular validation is used to ensure correct login and account data is inputted into the forms. Route guards are used for security so that the user needs to be logged in to navigate to certain routes. Pagination allows the web page to dynamically display a large array of food items to the user past the 20 food item limit. This app uses angular http request and spring rest jpa to communicate with the database.
 
 Demo for basic usage of the app https://user-images.githubusercontent.com/104413936/200194127-20f038cf-147b-42f1-b49f-0c112531cc35.mp4
 
